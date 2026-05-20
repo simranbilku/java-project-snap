@@ -1,6 +1,7 @@
 package org.cardgame;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class CardGame {
 
@@ -30,4 +31,11 @@ public class CardGame {
     public Card dealCard() {
         return deckOfCards.removeLast();
     }
+
+   public ArrayList<Card> sortDeckInNumberOrder() {
+        Comparator<Card> cardComparator = Comparator.comparing(Card::getValue);
+        deckOfCards.sort(cardComparator);
+        return deckOfCards;
+    }
 }
+
