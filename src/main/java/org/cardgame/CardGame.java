@@ -49,6 +49,6 @@ public class CardGame {
         Collections.shuffle(deckOfCards);
         return deckOfCards;
     }
-    
+
 }
 
