@@ -26,4 +26,8 @@ public class CardGame {
         }
         return deckOfCards;
     }
+
+    public Card dealCard() {
+        return deckOfCards.removeLast();
+    }
 }

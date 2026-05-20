@@ -24,7 +24,7 @@ public class Card {
     }
 
     public String toString() {
-        return String.format("The card is %s of %s", symbol, suit);
+        return String.format("%s of %s", symbol, suit);
     }
 }
 
