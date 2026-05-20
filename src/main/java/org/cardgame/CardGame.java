@@ -1,6 +1,7 @@
 package org.cardgame;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 
 public class CardGame {
@@ -44,15 +45,10 @@ public class CardGame {
         return deckOfCards;
     }
 
-    // ArrayList<Card> sortDeckIntoSuits()
-    // Sorts the deck into suits (2,3,4,5,6,7,8,9,10,J,Q,K,A of hearts,
-    // then 2,3,4,5,6,7,8,9,10,J,Q,K,A of clubs etc.)
-    // stores the new shuffled deck back into the deckOfCards attribute.
-
-   // Comparator<Card> cardComparator = new Comparator<Card>() {
-   //     public int compare(Card c1, Card c2) {
-   //         return Integer.compare(c1.getValue(), c2.getValue());
-   //     }
-   // };
+    public ArrayList<Card> shuffleDeck() {
+        Collections.shuffle(deckOfCards);
+        return deckOfCards;
+    }
+    
 }
 
