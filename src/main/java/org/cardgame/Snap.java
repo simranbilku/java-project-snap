@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Snap extends CardGame {
+    Player player1 = new Player("Player 1");
+    Player player2 = new Player("Player 2");
 
     public Snap(String name) {
         super(name);
@@ -11,9 +13,10 @@ public class Snap extends CardGame {
 
     public ArrayList<Card> playSnap() {
         boolean win = false;
+        boolean isPlayer1Turn = true;
         Card previousCard = null;
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Press enter to take your turn.");
+        System.out.println(player1.getName() + ": Press enter to take your turn.");
 
         while (!win) {
             String input = scanner.nextLine();
@@ -22,10 +25,19 @@ public class Snap extends CardGame {
                 System.out.println(currentCard);
                 if (previousCard != null && previousCard.getSymbol().equals(currentCard.getSymbol())) {
                     win = true;
-                    System.out.println("You win!");
+                    if (isPlayer1Turn) {
+                        System.out.println(player1.getName() + ": You win!");
+                    } else {
+                        System.out.println(player2.getName() + ": You win!");
+                    }
                 } else {
                     previousCard = currentCard;
-                    System.out.println("Press enter to take the next turn.");
+                    isPlayer1Turn = !isPlayer1Turn;
+                    if (isPlayer1Turn) {
+                        System.out.println(player1.getName() + ": Press enter to take your turn.");
+                    } else {
+                        System.out.println(player2.getName() + ": Press enter to take your turn.");
+                    }
                 }
             } else {
                 System.out.println("Try again. Press enter to take your turn.");
@@ -33,3 +45,4 @@ public class Snap extends CardGame {
         } return null;
     }
 }
+
