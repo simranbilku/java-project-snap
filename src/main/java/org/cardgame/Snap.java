@@ -33,7 +33,8 @@ public class Snap extends CardGame {
 
                     String snapInput = null;
                     ExecutorService executor = Executors.newSingleThreadExecutor();
-                    Future<String> future = executor.submit(scanner::nextLine);
+                    Scanner winScanner = new Scanner(System.in);
+                    Future<String> future = executor.submit(winScanner::nextLine);
 
                     try {
                         snapInput = future.get(2, TimeUnit.SECONDS);
