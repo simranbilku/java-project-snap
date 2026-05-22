@@ -45,8 +45,8 @@ public class Snap extends CardGame {
                         executor.shutdownNow();
                     }
 
-                    if ("snap".equals(snapInput)) {
-                        win = true;
+                    if ("snap".equals(snapInput != null ? snapInput.trim() : null)) {
+                            win = true;
                         if (isPlayer1Turn) {
                             System.out.println(player1.getName() + ": You win!");
                         } else {
