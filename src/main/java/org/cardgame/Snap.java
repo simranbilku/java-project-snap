@@ -24,11 +24,15 @@ public class Snap extends CardGame {
                 Card currentCard = dealCard();
                 System.out.println(currentCard);
                 if (previousCard != null && previousCard.getSymbol().equals(currentCard.getSymbol())) {
-                    win = true;
-                    if (isPlayer1Turn) {
-                        System.out.println(player1.getName() + ": You win!");
-                    } else {
-                        System.out.println(player2.getName() + ": You win!");
+                    System.out.println("type snap to win...");
+                    String snapInput = scanner.nextLine();
+                    if (snapInput.equals("snap")) {
+                        win = true;
+                        if (isPlayer1Turn) {
+                            System.out.println(player1.getName() + ": You win!");
+                        } else {
+                            System.out.println(player2.getName() + ": You win!");
+                        }
                     }
                 } else {
                     previousCard = currentCard;
