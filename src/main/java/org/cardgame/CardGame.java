@@ -3,6 +3,7 @@ package org.cardgame;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.NoSuchElementException;
 
 public class CardGame {
 
@@ -29,7 +30,14 @@ public class CardGame {
     }
 
     public Card dealCard() {
-        return deckOfCards.removeLast();
+        Card card = null;
+        try {
+            card = deckOfCards.removeLast();
+        } catch (NoSuchElementException e) {
+            shuffleDeck();
+            card = deckOfCards.removeLast();
+        }
+        return card;
     }
 
    public ArrayList<Card> sortDeckInNumberOrder() {
