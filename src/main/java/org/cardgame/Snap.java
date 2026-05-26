@@ -10,7 +10,9 @@ public class Snap extends CardGame {
     Player player2 = new Player("Player 2");
 
     public Snap(String name) {
+
         super(name);
+        shuffleDeck();
     }
 
     public ArrayList<Card> playSnap() {

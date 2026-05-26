@@ -12,6 +12,17 @@ public class CardGame {
 
     public CardGame(String name) {
         this.name = name;
+        buildDeck();
+    }
+
+    public ArrayList<Card> getDeck() {
+        for (Card card : deckOfCards) {
+            System.out.println(card.toString());
+        }
+        return deckOfCards;
+    }
+
+    public void buildDeck() {
         String[] symbol = {"2","3","4","5","6","7","8","9","10","J","Q","K","A"};
         int[] value = {2,3,4,5,6,7,8,9,10,11,12,13,14};
         for (Suit s : Suit.values()) {
@@ -22,18 +33,12 @@ public class CardGame {
         }
     }
 
-    public ArrayList<Card> getDeck() {
-        for (Card card : deckOfCards) {
-            System.out.println(card.toString());
-        }
-        return deckOfCards;
-    }
-
     public Card dealCard() {
         Card card = null;
         try {
             card = deckOfCards.removeLast();
         } catch (NoSuchElementException e) {
+            buildDeck();
             shuffleDeck();
             card = deckOfCards.removeLast();
         }

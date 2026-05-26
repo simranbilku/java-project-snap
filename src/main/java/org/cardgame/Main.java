@@ -3,7 +3,6 @@ package org.cardgame;
 public class Main {
     public static void main(String[] args) {
         Snap snap = new Snap("Snap Game");
-        snap.shuffleDeck();
         snap.playSnap();
     }
 }
