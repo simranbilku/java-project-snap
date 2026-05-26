@@ -70,9 +70,6 @@ public class Snap extends CardGame {
     }
 }
 
-// add timer -> when snap opportunity player has 2 seconds submit the word "snap"
-// if player doesn't type it in time, they lose
-
 // ExecutorService runs Scanner.nextLine() in a separate thread so the main thread can enforce a timeout
 // Future.get(timeout, unit)
 // if timeout expires it returns default value
