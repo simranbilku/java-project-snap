@@ -9,6 +9,7 @@ public class Snap extends CardGame {
     Player player1 = new Player("Player 1");
     Player player2 = new Player("Player 2");
 
+
     public Snap(String name) {
 
         super(name);
@@ -20,11 +21,13 @@ public class Snap extends CardGame {
         boolean win = false;
         boolean isPlayer1Turn = true;
         Card previousCard = null;
+        String input = "";
         Scanner scanner = new Scanner(System.in);
+
         System.out.println(player1.getName() + ": Press enter to take your turn." );
 
         while (!win) {
-            String input = scanner.nextLine();
+            input = scanner.nextLine();
 
             if (input.isEmpty()) {
                 Card currentCard = dealCard();
@@ -36,9 +39,10 @@ public class Snap extends CardGame {
                     String snapInput = null;
                     ExecutorService executor = Executors.newSingleThreadExecutor();
                     Scanner winScanner = new Scanner(System.in);
-                    Future<String> future = executor.submit(winScanner::nextLine);
+                    Future<String> future = null;
 
                     try {
+                        future = executor.submit(winScanner::nextLine);
                         snapInput = future.get(2, TimeUnit.SECONDS);
                     } catch (TimeoutException | InterruptedException | ExecutionException e) {
                         System.out.println("You didn't type snap in time!");
@@ -72,7 +76,3 @@ public class Snap extends CardGame {
     }
 }
 
-// ExecutorService runs Scanner.nextLine() in a separate thread so the main thread can enforce a timeout
-// Future.get(timeout, unit)
-// if timeout expires it returns default value
-// uses future.cancel(true) to interrupt the input thread after timeout

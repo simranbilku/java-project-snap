@@ -1,73 +1,75 @@
 <!-- _class: lead -->
 
-# Java Project - Snap
+# Java Snap Card Game
+
+---
+
+[![GitHub repo size](https://img.shields.io/github/repo-size/simranbilku/java-project-snap)](https://github.com/simranbilku/java-project-snap)
+[![GitHub stars](https://img.shields.io/github/stars/simranbilku/java-project-snap?style=social)](https://github.com/simranbilku/java-project-snap)
 
 ---
 
 ## Overview
 
-A model of the snap card game using Java.
+A two-player command-line implementation of the card game Snap, built in Java. Players take turns dealing cards from a shuffled 52-card deck, and must type "snap" within 2 seconds when two consecutive cards share the same symbol.
 
 ---
 
-## Stage 1
+## Prerequisites
 
-Using classes, ArrayLists and methods, create a deck of Cards. You should use the following
-classes:
+Before you begin, ensure you have the following installed:
 
-### CardGame
-
-- Contains an ArrayList\<Card\> for the deckOfCards that contains all 52 cards. This is created and populated when the game is constructed.
-- Has a name which is also defined in the constructor.
-- Has a getDeck method that lists out the cards in the deck.
-
-### Card
-
-- Has a String suit. Use the unicode characters of heart, club, diamond and spade.
-- Has a String symbol (2,3,4,5,6,7,8,9,10,J,Q,K,A)
-- Has an int value (2,3,4,5,6,7,8,9,10,11,12,13,14)
-- Has a toString method that describes the class
+- Java JDK 17 or higher
+- An IDE such as IntelliJ IDEA 
 
 ---
 
-## Stage 2
+## Installing
 
-Lets get some core functionality to our CardGame by implementing the following methods:
+To install and run this project, follow these steps:
 
-**Card dealCard()**
-
-Takes the card from the top of the deck and returns it.
-
-**ArrayList\<Card\> sortDeckInNumberOrder()**
-
-Sorts the deck in number order (e.g. 2222333344445555 etc) and stores the new shuffled deck back into the deckOfCards attribute.
-
-**ArrayList\<Card\> sortDeckIntoSuits()**
-
-Sorts the deck into suits (2,3,4,5,6,7,8,9,10,J,Q,K,A of hearts, then 2,3,4,5,6,7,8,9,10,J,Q,K,A of clubs etc.) and stores the new shuffled deck back into the deckOfCards attribute.
-
-**ArrayList\<Card\> shuffleDeck()**
-
-Shuffles the deck into a random order and stores the new shuffled deck back into the deckOfCards attribute.
+1. Clone the repository: git clone https://github.com/simranbilku/java-project-snap.git
+2. Navigate to the project directory: cd java-project-snap
+3. Run the project: Main.java
 
 ---
 
-### Stage 3
+## Using the Game
 
-Create class for Snap that extends CardGame.
+To play the game, follow these steps:
 
-This class should use the methods defined
-above, as well as some new ones, to enable the user to play the game snap according to the
-following rules:
+1. Run the program in Main.java. The deck is automatically shuffled on startup.
+2. Player 1 presses **Enter** in the terminal to deal a card.
+3. Players alternate turns, each pressing **Enter** to deal a card.
+4. When two consecutive cards share the same symbol, a snap opportunity occurs — the current player has **2 seconds** to type `snap` and press Enter to win.
+5. If the player doesn't type `snap` in time, the game continues.
+6. The game ends when a player successfully calls snap.
 
-- By pressing enter in the command line, the user takes their turn.
-- Each turn, a new card is dealt from the deck.
-- The game continues until two cards in a row have the same symbol, at which point the “player” wins and the game ends.
+## Features
 
-### Stage 4
+- Full 52-card deck 
+- Deck sorting by number order and by suit
+- Deck shuffling
+- Two-player alternating turns
+- 2-second snap timer using `ExecutorService` and `Future`
+- Automatic deck rebuild and reshuffle when the deck runs out
 
-Create a Player class and enable the snap game to be two player, with the users taking it in turns to go. If the snap occurs on the users turn, they win.
+---
 
-Add a timer so that when there is a snap opportunity, the player has 2 seconds to submit the word “snap” in order to win. If they don’t type it in time, they lose.
+## Known Issues
+
+- After a snap timeout, an extra Enter press may be required to continue.
+
+---
+
+## Contributors
+
+ [@simranbilku](https://github.com/simranbilku) 
+
+---
+
+## License
+
+This project does not currently use a license.
 
 ---
